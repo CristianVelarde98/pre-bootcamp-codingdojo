@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <div id="background">
+      <div
+        id="character"
+        style="
+          position: absolute;
+          top: 300px;
+          left: 450px;
+          background-image: url('./imagenes/down1.png');
+          width: 110px;
+          height: 110px;
+          background-size: contain;
+          background-repeat: no-repeat;
+        "
+      ></div>
+
+      <div style="border: 3px solid black; position: absolute; width: 570px; height: 590px;" />
+
+
+    <script type="text/javascript">
+        const ninja = document.getElementById("character");
+        let startLeft = 450; startTop = 300; direccion = 1; paso = 1
+
+        const update = () => {
+            paso == 1 ? paso = 2 : paso = 1
+            ninja.style.left = startLeft + "px";
+            ninja.style.top = startTop + "px";   // '../Desafio Ninja 1/imagenes/ninja1.png'
+            ninja.style.backgroundImage = "url('./imagenes/"+direccion+paso+".png')" ;
+        }
+
+        document.onkeydown = (event) => {
+            if(event.keyCode === 37 && startLeft > 0)  {startLeft -= 10; direccion = "left";} // izquierda 
+            if(event.keyCode === 39 && startLeft < 500 ) {startLeft += 10; direccion = "right";} // derecha
+            if(event.keyCode === 40 && startTop < 500) {startTop += 10; direccion = "down";}  // arriba
+            if(event.keyCode === 38 && startTop > 0) {startTop -= 10; direccion = "top";}  // abajo
+            update();
+        }
+    </script>
+  </body>
+</html>
