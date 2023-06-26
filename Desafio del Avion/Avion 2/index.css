@@ -22,3 +22,10 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+.missile {
+  background-color: blue;
+  width: 4px;
+  height: 10px;
+  position: absolute;
+}
